@@ -157,6 +157,49 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card.featured {
+            background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.85);
+            z-index: 1;
+        }
+
+        .card.featured > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card.featured h3,
+        .card.featured p {
+            color: white;
+        }
+
+        .card.featured .card-link {
+            color: #3498db;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .card.featured .card-link:hover {
+            background: #f0f0f0;
+            color: #2980b9;
         }
 
         .card:hover {
@@ -317,10 +360,10 @@
         <div class="section" id="projects">
             <h2 class="section-title">Current Research Projects</h2>
             <div class="card-grid">
-                <div class="card">
-                    <h3>Project Title One</h3>
-                    <p>Brief description of your research project, its objectives, and current status. This could include funding information and key collaborators.</p>
-                    <a href="#" class="card-link">Learn more →</a>
+                <div class="card featured">
+                    <h3>Reproducible Cost-Effectiveness Models</h3>
+                    <p>Can we trust health economic evaluations of new pharmaceuticals? This Forte-funded project examines the reproducibility of pharmacoeconomic models and investigates the impact of researcher degrees of freedom in cost-effectiveness analyses of cancer drugs.</p>
+                    <a href="reproduce-project.html" class="card-link">Learn more →</a>
                 </div>
                 <div class="card">
                     <h3>Project Title Two</h3>
