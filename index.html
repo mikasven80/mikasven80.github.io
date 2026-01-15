@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikael Svensson, Ph.D. - Health Economics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+            border-bottom: 2px solid white;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .social-links a:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .card .card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .card .card-link:hover {
+            color: #2980b9;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .team-member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .team-member-info h4 {
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .team-member-info .role {
+            color: #3498db;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Mikael Svensson, Ph.D.</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero" id="home">
+            <div class="hero-content">
+                <h1>Mikael Svensson</h1>
+                <div class="subtitle">Health Economist & Professor</div>
+                <p>I am a health economist and professor at the Institute of Medicine (Sahlgrenska Academy) at the University of Gothenburg in Sweden. My research focuses on economic evaluation in healthcare and public health, and health technology assessment.</p>
+                <div class="social-links">
+                    <a href="mailto:svensson.kmikael@ufl.edu">Email</a>
+                    <a href="https://scholar.google.com/citations?user=gB-V5z8AAAAJ" target="_blank">Google Scholar</a>
+                    <a href="https://www.linkedin.com/in/profsvensson/" target="_blank">LinkedIn</a>
+                    <a href="#">CV</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/300x300/3498db/ffffff?text=Your+Photo" alt="Mikael Svensson">
+            </div>
+        </div>
+
+        <div class="section" id="research">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Economic Evaluation</h3>
+                    <p>Theory and applications of economic evaluation methods in healthcare and public health interventions, including cost-effectiveness and cost-benefit analysis.</p>
+                </div>
+                <div class="card">
+                    <h3>Health Technology Assessment</h3>
+                    <p>Systematic evaluation of the properties and effects of health technologies, including medical devices, diagnostic tools, and pharmaceutical interventions.</p>
+                </div>
+                <div class="card">
+                    <h3>Healthcare Policy</h3>
+                    <p>Evidence-based approaches to healthcare policy development and implementation, with focus on resource allocation and priority setting.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="projects">
+            <h2 class="section-title">Current Research Projects</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Project Title One</h3>
+                    <p>Brief description of your research project, its objectives, and current status. This could include funding information and key collaborators.</p>
+                    <a href="#" class="card-link">Learn more →</a>
+                </div>
+                <div class="card">
+                    <h3>Project Title Two</h3>
+                    <p>Brief description of your research project, its objectives, and current status. This could include funding information and key collaborators.</p>
+                    <a href="#" class="card-link">Learn more →</a>
+                </div>
+                <div class="card">
+                    <h3>Project Title Three</h3>
+                    <p>Brief description of your research project, its objectives, and current status. This could include funding information and key collaborators.</p>
+                    <a href="#" class="card-link">Learn more →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="team">
+            <h2 class="section-title">Research Team</h2>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/80x80/3498db/ffffff?text=MS" alt="Team member">
+                <div class="team-member-info">
+                    <h4>Team Member Name</h4>
+                    <div class="role">Ph.D. Student</div>
+                    <p>Research focus: Brief description of their research interests and current projects.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/80x80/3498db/ffffff?text=MS" alt="Team member">
+                <div class="team-member-info">
+                    <h4>Team Member Name</h4>
+                    <div class="role">Postdoctoral Researcher</div>
+                    <p>Research focus: Brief description of their research interests and current projects.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="https://via.placeholder.com/80x80/3498db/ffffff?text=MS" alt="Team member">
+                <div class="team-member-info">
+                    <h4>Team Member Name</h4>
+                    <div class="role">Research Assistant</div>
+                    <p>Research focus: Brief description of their research interests and current projects.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="publications">
+            <h2 class="section-title">Selected Publications</h2>
+            <div class="card">
+                <p style="margin-bottom: 1rem;"><strong>Recent publications and working papers will be listed here.</strong></p>
+                <p style="color: #666; line-height: 1.8;">
+                    For a complete list of publications, please visit my <a href="https://scholar.google.com/citations?user=gB-V5z8AAAAJ" style="color: #3498db; text-decoration: none;">Google Scholar profile</a>.
+                </p>
+            </div>
+        </div>
+
+        <div class="section" id="teaching">
+            <h2 class="section-title">Teaching</h2>
+            <div class="card">
+                <h3>Courses</h3>
+                <p style="margin-bottom: 1rem;">Information about current and past courses taught, including course materials and syllabi.</p>
+                <a href="#" class="card-link">View teaching materials →</a>
+            </div>
+        </div>
+
+        <div class="section" id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="card">
+                <h3>Get in Touch</h3>
+                <p style="margin-bottom: 1rem;">
+                    <strong>Email:</strong> svensson.kmikael@ufl.edu<br>
+                    <strong>Office:</strong> Institute of Medicine, University of Gothenburg<br>
+                    <strong>Location:</strong> Gothenburg, Sweden
+                </p>
+                <p>I welcome inquiries from prospective students, collaborators, and colleagues interested in health economics research.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mikael Svensson. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">University of Gothenburg | Sahlgrenska Academy</p>
+    </footer>
+</body>
+</html>
