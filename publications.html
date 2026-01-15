@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Mikael Svensson, Ph.D.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+            border-bottom: 2px solid white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .intro p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .intro a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .intro a:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .publication {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .publication a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication a:hover {
+            text-decoration: underline;
+        }
+
+        .publication p {
+            color: #555;
+            margin-bottom: 0.3rem;
+            line-height: 1.7;
+        }
+
+        .authors {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .journal {
+            color: #777;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">Mikael Svensson, Ph.D.</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="index.html#teaching">Teaching</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Publications</h1>
+
+        <div class="intro">
+            <p><strong>Publications in peer-reviewed journals by research topic</strong></p>
+            <p>For all publications, see my <a href="https://www.dropbox.com/s/1unoaucng852wjd/CV%20-%20Mikael%20Svensson.pdf?dl=0" target="_blank">CV</a>.</p>
+        </div>
+
+        <div class="section">
+            <h2>Demand, Pricing and Spending of Prescription Drugs</h2>
+
+            <div class="publication">
+                <a href="https://academic.oup.com/healthaffairsscholar/article/3/4/qxaf051/8074216" target="_blank">An Analysis of US Net Cancer Drug Launch Prices and Clinical Efficacy and Certainty of Evidence from 2008 to 2022</a>
+                <p class="authors">Sumaya Abuloha, Ben Harvey, Shu Niu, Alaa Alshehri, Melissa Miri, Katherine Clifford, James Chambers and Mikael Svensson</p>
+                <p class="journal">Health Affairs Scholar, 2025: in press.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://www.jmcp.org/doi/10.18553/jmcp.2024.30.12.1355" target="_blank">Concentration of Spending and Share of Specialty Drug Spending in Medicare Part D over a 10-Year Period</a>
+                <p class="authors">Shu Niu, Laura E. Happe, Sumaya Abuloha and Mikael Svensson</p>
+                <p class="journal">Journal of Managed Care & Specialty Pharmacy, 2024, 30: 1355-1363.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://link.springer.com/article/10.1007/s40261-023-01285-4" target="_blank">Cancer drugs reimbursed with limited evidence on overall survival and quality of life: do follow-up studies confirm patient benefits?</a>
+                <p class="authors">Gabriella Chauca Strand, Naimi Johansson, Niklas Jakobsson, Carl Bonander and Mikael Svensson</p>
+                <p class="journal">Clinical Drug Investigation, 2023: 43: 621 - 633.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://www.esmoopen.com/article/S2059-7029%2822%2900198-3/fulltext" target="_blank">Assessment of the clinical and cost-effectiveness evidence in the reimbursement decisions of new cancer drugs</a>
+                <p class="authors">Gabriella Chauca Strand, Carl Bonander, Niklas Jakobsson, Naimi Johansson and Mikael Svensson</p>
+                <p class="journal">ESMO Open, 2022, 7: 100569.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://onlinelibrary.wiley.com/doi/10.1002/hec.4552" target="_blank">Regional Variation in Prescription Drug Spending: Evidence from Regional Migrants in Sweden</a>
+                <p class="authors">Naimi Johansson and Mikael Svensson</p>
+                <p class="journal">Health Economics, 2022, 31: 1862-1877.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://link.springer.com/article/10.1007/s10198-022-01446-w" target="_blank">The Impact of Cost-Sharing on Prescription Drug Demand: Evidence from a Double-Difference Regression Kink Design</a>
+                <p class="authors">Simona Gamba, Niklas Jakobsson and Mikael Svensson</p>
+                <p class="journal">European Journal of Health Economics, 2022, 23: 1591-1599.</p>
+            </div>
+
+            <div class="publication">
+                <a href="http://www.lakartidningen.se/Klinik-och-vetenskap/Halsoekonomi/2016/07/TLVs-betalningsvilja-for-nya-lakemedel-har-analyserats/" target="_blank">TLV:s betalningsvilja för nya läkemedel har analyserats (in Swedish)</a>
+                <p class="authors">Mikael Svensson and Fredrik Nilsson</p>
+                <p class="journal">Läkartidningen, 2016, 113: 1280 (1-4).</p>
+            </div>
+
+            <div class="publication">
+                <a href="http://link.springer.com/article/10.1007%2Fs40273-015-0307-6" target="_blank">Reimbursement decisions for pharmaceuticals in Sweden: the impact of disease severity and cost-effectiveness</a>
+                <p class="authors">Mikael Svensson, Fredrik Nilsson and Karl Arnberg</p>
+                <p class="journal">Pharmacoeconomics, 2015, 33: 1229-1336.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Demand of Healthcare</h2>
+
+            <div class="publication">
+                <a href="https://www.sciencedirect.com/science/article/pii/S0277953624000157?via%3Dihub" target="_blank">Place or Patient as the Driver of regional variation in healthcare spending – discrepancies by category of care</a>
+                <p class="authors">Naimi Johansson, Niklas Jakobsson and Mikael Svensson</p>
+                <p class="journal">Social Science & Medicine, 2024, 342: 116571.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://www.sciencedirect.com/science/article/pii/S0167629622001242" target="_blank">Reductions in out-of-pocket prices and forward-looking moral hazard in health care demand</a>
+                <p class="authors">Naimi Johansson, Sonja C de New, Johannes S Kunz, Dennis Petrie, and Mikael Svensson</p>
+                <p class="journal">Journal of Health Economics, 2023, 82: 102710.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://bmchealthservres.biomedcentral.com/articles/10.1186/s12913-023-10286-0" target="_blank">Long-term effects on healthcare utilization among spouses of persons with stroke</a>
+                <p class="authors">Frida Labori, Carl Bonander, Mikael Svensson and Josefine Persson</p>
+                <p class="journal">BMC Health Services Research, 2023, 23: 1298.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Economic Evaluation Methods</h2>
+
+            <div class="publication">
+                <a href="https://bmjopen.bmj.com/content/15/6/e096719.citation-tools" target="_blank">Reproducibility of published model-based cancer drug cost-effectiveness analyses: a study protocol for a cross-sectional analysis</a>
+                <p class="authors">Mikael Svensson, Jonathan Siverskog, Naimi Johansson and Martin Henriksson</p>
+                <p class="journal">BMJ Open, 2025, 15:e096719.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://onlinelibrary.wiley.com/doi/10.1002/hec.4263" target="_blank">Using Causal Forests to Asses Heterogeneity in Cost-Effectiveness Analysis</a>
+                <p class="authors">Carl Bonander and Mikael Svensson</p>
+                <p class="journal">Health Economics, 2021, 30: 1818-1832.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://www.valueinhealthjournal.com/article/S1098-3015%2820%2932204-X/abstract" target="_blank">Willingness to pay for health improvements using stated preferences: prevention vs treatment</a>
+                <p class="authors">Ellen Wolff, Sofie Larsson, Mikael Svensson</p>
+                <p class="journal">Value in Health, 2020, 23: 1384-1390.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Health Technology Assessment & Clinical Effectiveness</h2>
+
+            <div class="publication">
+                <a href="https://jamanetwork.com/journals/jamaneurology/fullarticle/2831976" target="_blank">GLP-1RA and SGLT2i Medications for Type 2 Diabetes and Alzheimer Disease and Related Dementias</a>
+                <p class="authors">Huilin Tang, William Donahoo, Steven DeKosky, Yao An Lee, Pareeta Kotecha, Mikael Svensson, Jian Biao, Jingchuan Guo</p>
+                <p class="journal">JAMA Neurology, 2025: in press.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.70313" target="_blank">Heterogeneous Treatment Effects of GLP-1RAs and SGLT2is on Risk of Alzheimer's Disease and Related Dementia in Patients with Type 2 Diabetes</a>
+                <p class="authors">Huilin Tang, William Donahoo, Steven DeKosky, Yao An Lee, Pareeta Kotecha, Mikael Svensson, Jiang Bian, Jingchuan Guo</p>
+                <p class="journal">Alzheimer's & Dementia, 2025: in press.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11424911/" target="_blank">A Systematic Review of Cost-Effectiveness Analyses of Gene Therapy for Hemophilia Type A and B</a>
+                <p class="authors">Alaa Alshehri, John Dougherty, Linda Beckman and Mikael Svensson</p>
+                <p class="journal">Journal of Managed Care and Specialty Pharmacy, 2024, 30: 1178-1188.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Applied Cost-Effectiveness Analyses: Patient-level data</h2>
+
+            <div class="publication">
+                <a href="https://bmjopen.bmj.com/content/14/7/e084025" target="_blank">Gothenburg Breast Reconstruction (GoBreast) II protocol: A Swedish partially randomised patient preference trial</a>
+                <p class="authors">Emma Hansson, Jonas Löfstrand, Camilla Larsson, Alexandra Uusimaki, Karolina Svensson, Anna Ekman, Mikael Svensson and Anna Paganini</p>
+                <p class="journal">BMJ Open, 2024, 14: e084025.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://academic.oup.com/ejendo/advance-article/doi/10.1093/ejendo/lvad057/7180094" target="_blank">Healthcare costs and survival in patients with non-functioning pituitary adenoma</a>
+                <p class="authors">Daniel Olsson, Mikael Svensson, Frida Labori, Anna De Geer and Gudmundur Johannsson</p>
+                <p class="journal">European Journal of Endocrinology, 2023, 188: 477-484.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Applied Cost-Effectiveness Analyses: Decision models</h2>
+
+            <div class="publication">
+                <a href="https://www.valueinhealthjournal.com/article/S1098-3015%2825%2900042-7/abstract" target="_blank">Capturing the Additional Cardiovascular Benefits of SGLT2 Inhibitors and GLP-1 Receptor Agonists</a>
+                <p class="authors">Shu Niu, Dawei Guan, Lizheng Shi, Vivian Fonseca, Mikael Svensson, Mohammed Ali, Yan Sun, Xin Hu, Chang Su, Carl Yang and Hui Shao</p>
+                <p class="journal">Value in Health, 2025, in press.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://contraceptionmedicine.biomedcentral.com/articles/10.1186/s40834-022-00206-8" target="_blank">Cost-effectiveness of increased contraceptive coverage using family planning benefits cards</a>
+                <p class="authors">Elly Nuwamanya, Joseph Babigumira, and Mikael Svensson</p>
+                <p class="journal">Contraception and Reproductive Medicine, 2023, 8:21.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Cost of Illness & Consequences</h2>
+
+            <div class="publication">
+                <a href="https://link.springer.com/article/10.1186/s12889-024-18301-7" target="_blank">The impact of multimorbidity among adults with cardiovascular diseases on healthcare costs in Indonesia</a>
+                <p class="authors">Royasia Viki Ramadini, Mikael Svensson, Sven Hassler, Budi Hidayat and Nawi Ng</p>
+                <p class="journal">BMC Public Health, 2024, 24:816.</p>
+            </div>
+
+            <div class="publication">
+                <a href="#" target="_blank">The impact of stroke on spousal and family income: a difference-in-difference study from Swedish national registries</a>
+                <p class="authors">Frida Labori, Josefine Persson, Mikael Svensson and Carl Bonander</p>
+                <p class="journal">Topics in Stroke Rehabilitation, 2023, 31: 381-389.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Public Health</h2>
+
+            <div class="publication">
+                <a href="#" target="_blank">A quasi-experimental evaluation of municipal ice cleat distribution programmes for older adults in Sweden</a>
+                <p class="authors">Elin Eklund, Robin Holmberg, Mikael Svensson, Johanna Gustavsson and Carl Bonander</p>
+                <p class="journal">Injury Prevention, 2023, 29: 378-383.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://injuryprevention.bmj.com/content/28/6/539.long" target="_blank">Ice cleat distribution programs and ice cleat use among older adults</a>
+                <p class="authors">Robin Holmberg, Johanna Gustavsson, Mikael Svensson and Carl Bonander</p>
+                <p class="journal">Injury Prevention, 2022, 28: 539-544.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mikael Svensson. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">University of Gothenburg | Sahlgrenska Academy</p>
+    </footer>
+</body>
+</html>
