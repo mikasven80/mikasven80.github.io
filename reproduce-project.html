@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRUST Project - Mikael Svensson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+            border-bottom: 2px solid white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-header {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .project-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+        }
+
+        .section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #3498db;
+        }
+
+        .team-member h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .team-member a {
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .team-member a:hover {
+            text-decoration: underline;
+        }
+
+        .publications {
+            list-style: none;
+        }
+
+        .publications li {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .publications li:hover {
+            background: #e8f4f8;
+            transform: translateX(5px);
+        }
+
+        .publications a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .publications a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2rem;
+            }
+
+            .project-header {
+                padding: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="index.html">Mikael Svensson, Ph.D.</a></div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#research">Research</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#team">Team</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="https://pharmaekonomi.substack.com/" target="_blank">Substack</a></li>
+                <li><a href="index.html#teaching">Teaching</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="index.html#projects" class="back-link">← Back to Projects</a>
+
+        <div class="project-header">
+            <h1>Reproducible Cost-Effectiveness Models</h1>
+            <p style="font-size: 1.1rem; color: #555; margin-top: 1rem;">
+                Can we trust health economic evaluations of new pharmaceuticals? Examining the impact of the researcher's degrees of freedom using a many-analysts approach
+            </p>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Period</span>
+                    <span class="meta-value">2024-2027</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Funding</span>
+                    <span class="meta-value">Forte</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Project Overview</h2>
+            <p>
+                Given the large economic and public health consequences of drug reimbursement decisions based on cost-effectiveness evidence, it is essential that the cost-effectiveness evidence provides valid input to decision-makers. Our long-term goal is to develop a framework and guidelines for improving reproducibility and reducing the impact of researcher degrees of freedom in pharmacoeconomic models.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Research Aims</h2>
+            <p>The primary aims of the project are:</p>
+            <ol style="margin-left: 2rem; color: #555; line-height: 1.8;">
+                <li style="margin-bottom: 0.8rem;"><strong>Reproducibility Assessment:</strong> To determine to what degree published pharmacoeconomic models of new cancer drugs are reproducible.</li>
+                <li><strong>Researcher Degrees of Freedom Analysis:</strong> To investigate the impact of researchers' degrees of freedom in the pharmacoeconomic modeling of two novel cancer drugs.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Research Team</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
+                    <strong style="color: #2c3e50; font-size: 1.05rem;">Mikael Svensson</strong>
+                    <span style="color: #666; margin-left: 1rem;">Principal Investigator</span>
+                </li>
+                <li style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
+                    <strong style="color: #2c3e50; font-size: 1.05rem;">Martin Henriksson</strong>
+                    <span style="color: #666; margin-left: 1rem;">Co-Investigator</span>
+                    <span style="color: #999; margin-left: 0.5rem;">•</span>
+                    <a href="https://liu.se/en/employee/marhe38" target="_blank" style="color: #3498db; text-decoration: none; margin-left: 0.5rem;">Linköping University</a>
+                </li>
+                <li style="padding: 1rem 0; border-bottom: 1px solid #e0e0e0;">
+                    <strong style="color: #2c3e50; font-size: 1.05rem;">Naimi Johansson</strong>
+                    <span style="color: #666; margin-left: 1rem;">Co-Investigator</span>
+                    <span style="color: #999; margin-left: 0.5rem;">•</span>
+                    <a href="https://sites.google.com/view/naimijohansson/" target="_blank" style="color: #3498db; text-decoration: none; margin-left: 0.5rem;">Karolinska Institute</a>
+                </li>
+                <li style="padding: 1rem 0;">
+                    <strong style="color: #2c3e50; font-size: 1.05rem;">Jonathan Siverskog</strong>
+                    <span style="color: #666; margin-left: 1rem;">Co-Investigator</span>
+                    <span style="color: #999; margin-left: 0.5rem;">•</span>
+                    <a href="https://www.katalog.uu.se/profile/?id=N22-1346" target="_blank" style="color: #3498db; text-decoration: none; margin-left: 0.5rem;">Uppsala University</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Presentations & Publications</h2>
+            <ul class="publications">
+                <li>
+                    <a href="https://bmjopen.bmj.com/content/15/6/e096719.full" target="_blank">
+                        Reproducibility of published model-based cancer drugs cost-effectiveness analyses: a study protocol for a cross-sectional analysis
+                    </a>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 0.5rem; margin-bottom: 0;">
+                        Mikael Svensson, Jonathan Siverskog, Naimi Johansson and Martin Henriksson<br>
+                        <em>BMJ Open, 2025, 15:e096719</em>
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mikael Svensson. All rights reserved.</p>
+    </footer>
+</body>
+</html>
