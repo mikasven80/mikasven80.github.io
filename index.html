@@ -529,67 +529,53 @@
     </footer>
 
     <script>
-        // Function to fetch and display Substack posts
-        async function loadSubstackPosts() {
-            const container = document.getElementById('substack-posts');
-            
-            try {
-                // Using RSS2JSON service to convert RSS to JSON (avoids CORS issues)
-                const rssUrl = 'https://pharmaekonomi.substack.com/feed';
-                const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=3`;
-                
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                
-                if (data.status === 'ok' && data.items && data.items.length > 0) {
-                    let html = '';
-                    
-                    // Display up to 3 most recent posts
-                    data.items.slice(0, 3).forEach(post => {
-                        const pubDate = new Date(post.pubDate);
-                        const formattedDate = pubDate.toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                        });
-                        
-                        // Create excerpt from description (strip HTML and limit length)
-                        const tempDiv = document.createElement('div');
-                        tempDiv.innerHTML = post.description;
-                        let excerpt = tempDiv.textContent || tempDiv.innerText || '';
-                        excerpt = excerpt.substring(0, 300).trim() + (excerpt.length > 300 ? '...' : '');
-                        
-                        html += `
-                            <div class="substack-post">
-                                <h3><a href="${post.link}" target="_blank">${post.title}</a></h3>
-                                <p class="post-date">Published: ${formattedDate}</p>
-                                <p class="post-excerpt">${excerpt}</p>
-                                <a href="${post.link}" target="_blank" class="read-more">Read more on Substack →</a>
-                            </div>
-                        `;
-                    });
-                    
-                    container.innerHTML = html;
-                } else {
-                    throw new Error('No posts found');
-                }
-            } catch (error) {
-                console.error('Error loading Substack posts:', error);
-                // Fallback to manual post if RSS fails
-                container.innerHTML = `
-                    <div class="substack-post">
-                        <h3><a href="https://pharmaekonomi.substack.com/p/why-drugs-fail-health-technology" target="_blank">Why Drugs "Fail" Health Technology Assessments?</a></h3>
-                        <p class="post-date">Published: November 7, 2025</p>
-                        <p class="post-excerpt">
-                            Most new drugs with regulatory approval are also reimbursed and recommended by HTA agencies. But not all - what are the top drivers (beyond cost per QALY) of rejections and negative recommendations? Analysis of HTA decisions across seven OECD countries reveals that uncertainty and low-quality evidence significantly increase rejection odds.
-                        </p>
-                        <a href="https://pharmaekonomi.substack.com" target="_blank" class="read-more">Read more on Substack →</a>
-                    </div>
-                    <p style="color: #999; font-size: 0.9rem; margin-top: 1rem; font-style: italic;">
-                        Note: Automatic feed loading is currently unavailable. Visit <a href="https://pharmaekonomi.substack.com" target="_blank" style="color: #3498db;">pharmaekonomi.substack.com</a> for all posts.
-                    </p>
-                `;
+        // ============================================
+        // UPDATE YOUR POSTS HERE - Just edit this array when you publish a new post
+        // Only the FIRST/NEWEST post in the list will be displayed on the website
+        // ============================================
+        const substackPosts = [
+            {
+                title: "Is the US dismantling Cost-Benefit Analysis?",
+                url: "https://pharmaekonomi.substack.com/p/is-the-us-dismantling-cost-benefit",
+                date: "2026-01-28",
+                excerpt: "Cost-Benefit Analysis, the older sibling to Cost-Effectiveness Analysis, is perhaps being dismantled as an input to decision-making by the US Federal Government."
             }
+            // To add a new post, copy the format above and add it here (keep the comma!)
+            // Example:
+            // ,{
+            //     title: "Your New Post Title",
+            //     url: "https://pharmaekonomi.substack.com/p/your-post-url",
+            //     date: "2026-01-15",
+            //     excerpt: "Brief description of your post..."
+            // }
+        ];
+        // ============================================
+        
+        // Function to display Substack posts
+        function loadSubstackPosts() {
+            const container = document.getElementById('substack-posts');
+            let html = '';
+            
+            // Display only the latest post
+            substackPosts.slice(0, 1).forEach(post => {
+                const pubDate = new Date(post.date);
+                const formattedDate = pubDate.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                
+                html += `
+                    <div class="substack-post">
+                        <h3><a href="${post.url}" target="_blank">${post.title}</a></h3>
+                        <p class="post-date">Published: ${formattedDate}</p>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                        <a href="${post.url}" target="_blank" class="read-more">Read more on Substack →</a>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
         }
         
         // Load posts when page loads
