@@ -289,6 +289,59 @@
             margin-top: 4rem;
         }
 
+        .substack-post {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+        }
+
+        .substack-post h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .substack-post h3 a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .substack-post h3 a:hover {
+            color: #3498db;
+        }
+
+        .substack-post .post-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .substack-post .post-excerpt {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .substack-post .read-more {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .substack-post .read-more:hover {
+            color: #2980b9;
+        }
+
+        .loading {
+            color: #999;
+            font-style: italic;
+            padding: 2rem;
+            text-align: center;
+        }
+
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -350,17 +403,8 @@
 
         <div class="section">
             <h2 class="section-title">Latest from Substack</h2>
-            <div class="card" style="background: #f8f9fa; border-left: 4px solid #3498db;">
-                <h3 style="margin-bottom: 0.5rem;">
-                    <a href="https://pharmaekonomi.substack.com/p/why-drugs-fail-health-technology" target="_blank" style="color: #2c3e50; text-decoration: none;">Why Drugs "Fail" Health Technology Assessments?</a>
-                </h3>
-                <p style="color: #999; font-size: 0.9rem; margin-bottom: 1rem;">Published: November 7, 2025</p>
-                <p style="color: #555; line-height: 1.8; margin-bottom: 1rem;">
-                    Most new drugs with regulatory approval are also reimbursed and recommended by HTA agencies. But not all - what are the top drivers (beyond cost per QALY) of rejections and negative recommendations? Analysis of HTA decisions across seven OECD countries reveals that uncertainty and low-quality evidence significantly increase rejection odds.
-                </p>
-                <a href="https://pharmaekonomi.substack.com" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 500;">
-                    Read more on Substack →
-                </a>
+            <div id="substack-posts">
+                <div class="loading">Loading latest posts...</div>
             </div>
         </div>
 
@@ -421,8 +465,8 @@
                     </svg>
                 </div>
                 <div class="team-member-info">
-                    <h4>Vendela Johansson</h4>
-                    <div class="role">Master's Student</div>
+                    <h4>To be recruited in Spring 2026</h4>
+                    <div class="role">Research Assistant</div>
                     <p>Research focus: The Evidence-Base and Value of Cancer Drugs</p>
                 </div>
             </div>
@@ -483,5 +527,73 @@
     <footer>
         <p>&copy; 2026 Mikael Svensson. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Function to fetch and display Substack posts
+        async function loadSubstackPosts() {
+            const container = document.getElementById('substack-posts');
+            
+            try {
+                // Using RSS2JSON service to convert RSS to JSON (avoids CORS issues)
+                const rssUrl = 'https://pharmaekonomi.substack.com/feed';
+                const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=3`;
+                
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                
+                if (data.status === 'ok' && data.items && data.items.length > 0) {
+                    let html = '';
+                    
+                    // Display up to 3 most recent posts
+                    data.items.slice(0, 3).forEach(post => {
+                        const pubDate = new Date(post.pubDate);
+                        const formattedDate = pubDate.toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        });
+                        
+                        // Create excerpt from description (strip HTML and limit length)
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = post.description;
+                        let excerpt = tempDiv.textContent || tempDiv.innerText || '';
+                        excerpt = excerpt.substring(0, 300).trim() + (excerpt.length > 300 ? '...' : '');
+                        
+                        html += `
+                            <div class="substack-post">
+                                <h3><a href="${post.link}" target="_blank">${post.title}</a></h3>
+                                <p class="post-date">Published: ${formattedDate}</p>
+                                <p class="post-excerpt">${excerpt}</p>
+                                <a href="${post.link}" target="_blank" class="read-more">Read more on Substack →</a>
+                            </div>
+                        `;
+                    });
+                    
+                    container.innerHTML = html;
+                } else {
+                    throw new Error('No posts found');
+                }
+            } catch (error) {
+                console.error('Error loading Substack posts:', error);
+                // Fallback to manual post if RSS fails
+                container.innerHTML = `
+                    <div class="substack-post">
+                        <h3><a href="https://pharmaekonomi.substack.com/p/why-drugs-fail-health-technology" target="_blank">Why Drugs "Fail" Health Technology Assessments?</a></h3>
+                        <p class="post-date">Published: November 7, 2025</p>
+                        <p class="post-excerpt">
+                            Most new drugs with regulatory approval are also reimbursed and recommended by HTA agencies. But not all - what are the top drivers (beyond cost per QALY) of rejections and negative recommendations? Analysis of HTA decisions across seven OECD countries reveals that uncertainty and low-quality evidence significantly increase rejection odds.
+                        </p>
+                        <a href="https://pharmaekonomi.substack.com" target="_blank" class="read-more">Read more on Substack →</a>
+                    </div>
+                    <p style="color: #999; font-size: 0.9rem; margin-top: 1rem; font-style: italic;">
+                        Note: Automatic feed loading is currently unavailable. Visit <a href="https://pharmaekonomi.substack.com" target="_blank" style="color: #3498db;">pharmaekonomi.substack.com</a> for all posts.
+                    </p>
+                `;
+            }
+        }
+        
+        // Load posts when page loads
+        document.addEventListener('DOMContentLoaded', loadSubstackPosts);
+    </script>
 </body>
 </html>
