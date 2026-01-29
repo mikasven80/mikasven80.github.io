@@ -289,24 +289,54 @@
             margin-top: 4rem;
         }
 
+        /* UPDATED SUBSTACK POST STYLES - NOW MATCHES CARD DESIGN */
         .substack-post {
-            background: #f8f9fa;
-            border-left: 4px solid #3498db;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-radius: 5px;
+            background-size: cover;
+            background-position: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .substack-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.85);
+            z-index: 1;
+        }
+
+        .substack-post > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .substack-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
         }
 
         .substack-post h3 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .substack-post h3 a {
-            color: #2c3e50;
+            color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.05rem;
-            line-height: 1.5;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            transition: color 0.3s;
         }
 
         .substack-post h3 a:hover {
@@ -314,25 +344,34 @@
         }
 
         .substack-post .post-date {
-            color: #999;
+            color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
         .substack-post .post-excerpt {
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .substack-post .read-more {
             color: #3498db;
+            background: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            display: inline-block;
             text-decoration: none;
             font-weight: 500;
+            transition: all 0.3s;
+            align-self: flex-start;
         }
 
         .substack-post .read-more:hover {
+            background: #f0f0f0;
             color: #2980b9;
+            transform: translateX(3px);
         }
 
         .loading {
@@ -364,6 +403,10 @@
             .team-member {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .substack-post {
+                min-height: 250px;
             }
         }
     </style>
@@ -538,7 +581,8 @@
                 title: "Is the US dismantling Cost-Benefit Analysis?",
                 url: "https://pharmaekonomi.substack.com/p/is-the-us-dismantling-cost-benefit",
                 date: "2026-01-28",
-                excerpt: "Cost-Benefit Analysis, the older sibling to Cost-Effectiveness Analysis, is perhaps being dismantled as an input to decision-making by the US Federal Government."
+                excerpt: "Cost-Benefit Analysis, the older sibling to Cost-Effectiveness Analysis, is perhaps being dismantled as an input to decision-making by the US Federal Government.",
+                image: "https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F66d217f0-826d-4da2-99d5-0c957f3b8bbc_1588x1056.png"
             }
             // To add a new post, copy the format above and add it here (keep the comma!)
             // Example:
@@ -546,7 +590,8 @@
             //     title: "Your New Post Title",
             //     url: "https://pharmaekonomi.substack.com/p/your-post-url",
             //     date: "2026-01-15",
-            //     excerpt: "Brief description of your post..."
+            //     excerpt: "Brief description of your post...",
+            //     image: "https://your-image-url.com/image.png"
             // }
         ];
         // ============================================
@@ -565,8 +610,11 @@
                     day: 'numeric' 
                 });
                 
+                // Add inline style for background image
+                const backgroundStyle = post.image ? `style="background-image: url('${post.image}');"` : '';
+                
                 html += `
-                    <div class="substack-post">
+                    <div class="substack-post" ${backgroundStyle}>
                         <h3><a href="${post.url}" target="_blank">${post.title}</a></h3>
                         <p class="post-date">Published: ${formattedDate}</p>
                         <p class="post-excerpt">${post.excerpt}</p>
