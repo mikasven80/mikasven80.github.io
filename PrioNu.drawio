@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.2 Safari/605.1.15" version="29.3.6">
+  <diagram name="Page-1" id="0SxhHeNhVAicJUfdr88P">
+    <mxGraphModel dx="626" dy="921" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ekkiZ5lxXEJVKm-Yxxv4-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="40" width="80" x="130" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ekkiZ5lxXEJVKm-Yxxv4-1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Target population" vertex="1">
+          <mxGeometry height="40" width="60" x="140" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ekkiZ5lxXEJVKm-Yxxv4-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="40" width="80" x="130" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ekkiZ5lxXEJVKm-Yxxv4-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Survey invitation" vertex="1">
+          <mxGeometry height="40" width="60" x="140" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ekkiZ5lxXEJVKm-Yxxv4-5" edge="1" parent="1" source="ekkiZ5lxXEJVKm-Yxxv4-1" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ekkiZ5lxXEJVKm-Yxxv4-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="370" y="320" as="sourcePoint" />
+            <mxPoint x="390" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
