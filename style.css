@@ -175,6 +175,9 @@ nav {
 
 .hero-image img {
     width: 100%;
+    /* height:auto is load-bearing — without it the img's height="" attribute
+       wins and the portrait stretches into a tall ellipse. */
+    height: auto;
     max-width: 300px;
     border-radius: 50%;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
@@ -307,7 +310,11 @@ nav {
     text-align: center;
 }
 
+/* The grey silhouette always sits in the markup; the photo layers on top of it
+   and removes itself if the file is missing. So a member without a photo yet
+   looks exactly as before, with no flash of an empty circle. */
 .team-photo {
+    position: relative;
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -320,17 +327,19 @@ nav {
     box-shadow: var(--shadow-sm);
 }
 
+.team-photo .placeholder {
+    width: 60px;
+    height: 60px;
+}
+
 .team-photo img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-}
-
-/* Grey silhouette shown only if the photo file is missing or fails to load */
-.team-photo .placeholder {
-    width: 60px;
-    height: 60px;
 }
 
 .team-member h4 {
@@ -543,14 +552,6 @@ footer .updated {
 
     .hero-content h1 {
         font-size: 2rem;
-    }
-
-    .hero-image {
-        order: -1;
-    }
-
-    .hero-image img {
-        max-width: 180px;
     }
 
     .nav-links {
