@@ -3,86 +3,423 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikael Svensson, Ph.D. - Health Economics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <title>Mikael Svensson — Professor of Applied Health Economics, University of Gothenburg</title>
-    <meta name="description" content="Mikael Svensson is Professor of Applied Health Economics at the University of Gothenburg. Research on economic evaluation, health technology assessment, cost-effectiveness methods and pharmaceutical policy.">
-    <meta name="author" content="Mikael Svensson">
-    <link rel="canonical" href="https://msvensson.com/">
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
 
-    <!-- Link previews: what LinkedIn, Bluesky, Slack and X show when the site is shared -->
-    <meta property="og:type" content="profile">
-    <meta property="og:site_name" content="Mikael Svensson, Ph.D.">
-    <meta property="og:title" content="Mikael Svensson — Professor of Applied Health Economics">
-    <meta property="og:description" content="Research on economic evaluation in healthcare and public health, health technology assessment, and healthcare policy. University of Gothenburg.">
-    <meta property="og:url" content="https://msvensson.com/">
-    <!-- Points at the existing photo so previews work today. Swap both og:image
-         and twitter:image to og-image.jpg once that 1200x630 file is uploaded. -->
-    <meta property="og:image" content="https://msvensson.com/Mikael_Svensson_2019.jpg">
-    <meta property="og:image:alt" content="Mikael Svensson, Professor of Applied Health Economics, University of Gothenburg">
-    <meta property="profile:first_name" content="Mikael">
-    <meta property="profile:last_name" content="Svensson">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mikael Svensson — Professor of Applied Health Economics">
-    <meta name="twitter:description" content="Research on economic evaluation in healthcare and public health, health technology assessment, and healthcare policy. University of Gothenburg.">
-    <meta name="twitter:image" content="https://msvensson.com/Mikael_Svensson_2019.jpg">
+        header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    <meta name="theme-color" content="#2c3e50">
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
 
-    <!-- Structured data: tells Google this is a person, and who -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Mikael Svensson",
-      "givenName": "Mikael",
-      "familyName": "Svensson",
-      "honorificSuffix": "Ph.D.",
-      "jobTitle": "Professor of Applied Health Economics",
-      "url": "https://msvensson.com/",
-      "image": "https://msvensson.com/Mikael_Svensson_2019.jpg",
-      "email": "mailto:mikael.svensson.2@gu.se",
-      "affiliation": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of Gothenburg",
-        "department": {
-          "@type": "Organization",
-          "name": "School of Public Health and Community Medicine"
-        },
-        "url": "https://www.gu.se/"
-      },
-      "knowsAbout": [
-        "Health economics",
-        "Economic evaluation",
-        "Cost-effectiveness analysis",
-        "Health technology assessment",
-        "Pharmaceutical policy",
-        "Public health"
-      ],
-      "sameAs": [
-        "https://scholar.google.com/citations?user=gB-V5z8AAAAJ",
-        "https://www.linkedin.com/in/profsvensson/",
-        "https://pharmaekonomi.substack.com/"
-      ]
-    }
-    </script>
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+            border-bottom: 2px solid white;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            background: white;
+            border-radius: 10px;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.2rem;
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .social-links a:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            object-fit: cover;
+            aspect-ratio: 1/1;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card.featured {
+            background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.85);
+            z-index: 1;
+        }
+
+        .card.featured > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card.featured h3,
+        .card.featured p {
+            color: white;
+        }
+
+        .card.featured .card-link {
+            color: #3498db;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .card.featured .card-link:hover {
+            background: #f0f0f0;
+            color: #2980b9;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .card .card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .card .card-link:hover {
+            color: #2980b9;
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .team-member-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #d0d0d0;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-member-photo svg {
+            width: 40px;
+            height: 40px;
+            fill: #999;
+        }
+
+        .team-member-info h4 {
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .team-member-info .role {
+            color: #3498db;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .substack-post {
+            background-size: cover;
+            background-position: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .substack-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.85);
+            z-index: 1;
+        }
+
+        .substack-post > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .substack-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+        }
+
+        .substack-post h3 {
+            margin-bottom: 0.8rem;
+        }
+
+        .substack-post h3 a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .substack-post h3 a:hover {
+            color: #3498db;
+        }
+
+        .substack-post .post-date {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .substack-post .post-excerpt {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .substack-post .read-more {
+            color: #3498db;
+            background: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            align-self: flex-start;
+        }
+
+        .substack-post .read-more:hover {
+            background: #f0f0f0;
+            color: #2980b9;
+            transform: translateX(3px);
+        }
+
+        .loading {
+            color: #999;
+            font-style: italic;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .substack-post {
+                min-height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <a class="skip-link" href="#home">Skip to content</a>
-
     <header>
-        <nav aria-label="Main">
-            <div class="logo"><a href="index.html">Mikael Svensson, Ph.D.</a></div>
+        <nav>
+            <div class="logo">Mikael Svensson, Ph.D.</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="https://pharmaekonomi.substack.com/" target="_blank" rel="noopener noreferrer">Substack</a></li>
+                <li><a href="https://pharmaekonomi.substack.com/" target="_blank">Substack</a></li>
                 <li><a href="#teaching">Teaching</a></li>
             </ul>
         </nav>
@@ -96,93 +433,106 @@
                 <p>I am a health economist and professor at the School of Public Health and Community Medicine at the University of Gothenburg in Sweden. My research focuses on economic evaluation in healthcare and public health, health technology assessment, and healthcare policy topics.</p>
                 <div class="social-links">
                     <a href="mailto:mikael.svensson.2@gu.se">Email</a>
-                    <a href="https://scholar.google.com/citations?user=gB-V5z8AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-                    <a href="https://www.linkedin.com/in/profsvensson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="https://www.dropbox.com/s/1unoaucng852wjd/CV%20-%20Mikael%20Svensson.pdf?dl=0" target="_blank" rel="noopener noreferrer">CV</a>
+                    <a href="https://scholar.google.com/citations?user=gB-V5z8AAAAJ" target="_blank">Google Scholar</a>
+                    <a href="https://www.linkedin.com/in/profsvensson/" target="_blank">LinkedIn</a>
+                    <a href="https://www.dropbox.com/s/1unoaucng852wjd/CV%20-%20Mikael%20Svensson.pdf?dl=0" target="_blank">CV</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="Mikael_Svensson_2019.jpg" alt="Mikael Svensson" fetchpriority="high">
+                <img src="Mikael_Svensson_2019.jpg" alt="Mikael Svensson">
             </div>
         </div>
 
         <div class="section">
             <h2 class="section-title">Latest from Substack</h2>
             <div id="substack-posts">
-                <div class="loading">Loading latest posts…</div>
+                <div class="loading">Loading latest posts...</div>
             </div>
         </div>
 
         <div class="section" id="projects">
             <h2 class="section-title">Current Research Projects</h2>
             <div class="card-grid">
-                <div class="card featured" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&amp;q=80');">
+                <div class="card featured">
                     <h3>Reproducible Cost-Effectiveness Models</h3>
                     <p>Can we trust health economic evaluations of new pharmaceuticals? This Forte-funded project examines the reproducibility of pharmacoeconomic models and investigates the impact of researcher degrees of freedom in cost-effectiveness analyses of cancer drugs.</p>
                     <a href="reproduce-project.html" class="card-link">Learn more →</a>
                 </div>
-                <div class="card featured" style="background-image: url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&amp;q=80');">
+                <div class="card featured" style="background-image: url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80');">
                     <h3>The Evidence-Base and Value of Cancer Drugs</h3>
                     <p>Evaluating the clinical and cost-effectiveness evidence used in reimbursement decisions for new cancer drugs in Sweden. This project examines how surrogate endpoints and limited trial data impact drug pricing and healthcare costs.</p>
                     <a href="cancer-evidence.html" class="card-link">Learn more →</a>
                 </div>
-                <div class="card featured" style="background-image: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&amp;q=80');">
+                <div class="card featured" style="background-image: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=800&q=80');">
                     <h3>MedPREP</h3>
-                    <p>The focus of MedPREP is on strengthening health system resilience through enhancing the robustness of medical preparedness — particularly the availability, production, and governance of critical pharmaceuticals.</p>
-                    <a href="https://www.nordforsk.org/projects/prioritizing-medical-preparedness-health-system-readiness-medprep" target="_blank" rel="noopener noreferrer" class="card-link">Learn more →</a>
+                    <p>The focus of MedPREP is on strengthening health system resilience through enhancing the robustness of medical preparedness - particularly the availability, production, and governance of critical pharmaceuticals.</p>
+                    <a href="https://www.nordforsk.org/projects/prioritizing-medical-preparedness-health-system-readiness-medprep" target="_blank" class="card-link">Learn more →</a>
                 </div>
             </div>
         </div>
 
         <div class="section" id="team">
             <h2 class="section-title">Research Team</h2>
-            <div class="team-grid">
-
-                <!-- Each photo falls back to the grey silhouette if the file is missing.
-                     Drop the .jpg files in the repo root with these exact names. -->
-                <div class="team-member">
-                    <div class="team-photo">
-                        <svg class="placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        <img src="ben-harvey.jpg" alt="Ben Harvey" onerror="this.remove()">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                
+                <div style="text-align: center;">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; background: #d0d0d0; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <!-- Replace with: <img src="ben-harvey.jpg" alt="Ben Harvey" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 60px; height: 60px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
                     </div>
-                    <h4>Ben Harvey</h4>
-                    <p class="role">Post-Doc</p>
+                    <h4 style="color: #2c3e50; margin-bottom: 0.3rem; font-size: 1.1rem;">Ben Harvey</h4>
+                    <p style="color: #3498db; font-size: 0.95rem;">Post-Doc</p>
                 </div>
 
-                <div class="team-member">
-                    <div class="team-photo">
-                        <svg class="placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        <img src="daniel-pouragheli.jpg" alt="Daniel Pouragheli" onerror="this.remove()">
+                <div style="text-align: center;">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; background: #d0d0d0; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <!-- Replace with: <img src="daniel-pouragheli.jpg" alt="Daniel Pouragheli" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 60px; height: 60px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
                     </div>
-                    <h4>Daniel Pouragheli</h4>
-                    <p class="role">PhD Student</p>
+                    <h4 style="color: #2c3e50; margin-bottom: 0.3rem; font-size: 1.1rem;">Daniel Pouragheli</h4>
+                    <p style="color: #3498db; font-size: 0.95rem;">PhD Student</p>
                 </div>
 
-                <div class="team-member">
-                    <div class="team-photo">
-                        <svg class="placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        <img src="thomas-lane.jpg" alt="Thomas Lane" onerror="this.remove()">
+                <div style="text-align: center;">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; background: #d0d0d0; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <!-- Replace with: <img src="thomas-lane.jpg" alt="Thomas Lane" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 60px; height: 60px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
                     </div>
-                    <h4>Thomas Lane</h4>
-                    <p class="role">Research Assistant</p>
+                    <h4 style="color: #2c3e50; margin-bottom: 0.3rem; font-size: 1.1rem;">Thomas Lane</h4>
+                    <p style="color: #3498db; font-size: 0.95rem;">Research Assistant</p>
                 </div>
 
-                <div class="team-member">
-                    <div class="team-photo">
-                        <svg class="placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        <img src="pedro-serra.jpg" alt="Pedro Serra da Silva" onerror="this.remove()">
+                <div style="text-align: center;">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; background: #d0d0d0; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <!-- Replace with: <img src="pedro-serra.jpg" alt="Pedro Serra da Silva" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 60px; height: 60px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
                     </div>
-                    <h4>Pedro Serra da Silva</h4>
-                    <p class="role">Research Assistant</p>
+                    <h4 style="color: #2c3e50; margin-bottom: 0.3rem; font-size: 1.1rem;">Pedro Serra da Silva</h4>
+                    <p style="color: #3498db; font-size: 0.95rem;">Research Assistant</p>
                 </div>
 
-                <div class="team-member">
-                    <div class="team-photo">
-                        <svg class="placeholder" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        <img src="nhien-nguyen.jpg" alt="Phan Thuy Nhien Nguyen" onerror="this.remove()">
+                <div style="text-align: center;">
+                    <div style="width: 150px; height: 150px; border-radius: 50%; background: #d0d0d0; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                        <!-- Replace with: <img src="nhien-nguyen.jpg" alt="Phan Thuy Nhien Nguyen" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 60px; height: 60px;">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
                     </div>
-                    <h4>Phan Thuy Nhien Nguyen</h4>
-                    <p class="role">Master's Student</p>
+                    <h4 style="color: #2c3e50; margin-bottom: 0.3rem; font-size: 1.1rem;">Phan Thuy Nhien Nguyen</h4>
+                    <p style="color: #3498db; font-size: 0.95rem;">Master's Student</p>
                 </div>
 
             </div>
@@ -192,50 +542,50 @@
             <h2 class="section-title">Most Recent Publications</h2>
             <div class="card">
 
-                <div class="publication">
-                    <a class="pub-title" href="https://link.springer.com/article/10.1007/s40261-026-01571-x" target="_blank" rel="noopener noreferrer">Modeling the Budget Impact of Disease-Modifying Therapies in Infantile-Onset Spinal Muscular Atrophy</a>
-                    <p class="pub-authors">Sumaya Abuloha, Amie Goodin, Tianze Jiao, Manuela Corti and Mikael Svensson</p>
-                    <p class="pub-venue">Clinical Drug Investigation, 2026: in press.</p>
+                <div class="publication" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e0e0e0;">
+                    <a href="https://link.springer.com/article/10.1007/s40261-026-01571-x" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 600; font-size: 1.05rem; line-height: 1.5; display: inline-block; margin-bottom: 0.5rem;">Modeling the Budget Impact of Disease-Modifying Therapies in Infantile-Onset Spinal Muscular Atrophy</a>
+                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 0.3rem;">Sumaya Abuloha, Amie Goodin, Tianze Jiao, Manuela Corti and Mikael Svensson</p>
+                    <p style="color: #777; font-style: italic; font-size: 0.95rem;">Clinical Drug Investigation, 2026: in press.</p>
                 </div>
 
-                <div class="publication">
-                    <a class="pub-title" href="https://www.sciencedirect.com/science/article/pii/S2213538326000238" target="_blank" rel="noopener noreferrer">Do U.S. cancer drug sales reflect clinical benefit? Evidence from solid tumor drugs from 2008 to 2022</a>
-                    <p class="pub-authors">Melissa Miri, Sumaya Abuloha, Shu Niu, Alaa Alshehri, Ben Harvey and Mikael Svensson</p>
-                    <p class="pub-venue">Journal of Cancer Policy, 2026: 48: 100723.</p>
+                <div class="publication" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e0e0e0;">
+                    <a href="https://www.sciencedirect.com/science/article/pii/S2213538326000238" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 600; font-size: 1.05rem; line-height: 1.5; display: inline-block; margin-bottom: 0.5rem;">Do U.S. cancer drug sales reflect clinical benefit? Evidence from solid tumor drugs from 2008 to 2022</a>
+                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 0.3rem;">Melissa Miri, Sumaya Abuloha, Shu Niu, Alaa Alshehri, Ben Harvey and Mikael Svensson</p>
+                    <p style="color: #777; font-style: italic; font-size: 0.95rem;">Journal of Cancer Policy, 2026: 48: 100723.</p>
                 </div>
 
-                <div class="publication">
-                    <a class="pub-title" href="https://academic.oup.com/healthaffairsscholar/article/3/4/qxaf051/8074216" target="_blank" rel="noopener noreferrer">An Analysis of US Net Cancer Drug Launch Prices and Clinical Efficacy and Certainty of Evidence from 2008 to 2022</a>
-                    <p class="pub-authors">Sumaya Abuloha, Ben Harvey, Shu Niu, Alaa Alshehri, Melissa Miri, Katherine Clifford, James Chambers and Mikael Svensson</p>
-                    <p class="pub-venue">Health Affairs Scholar, 2025: 3: qxaf051.</p>
+                <div class="publication" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e0e0e0;">
+                    <a href="https://academic.oup.com/healthaffairsscholar/article/3/4/qxaf051/8074216" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 600; font-size: 1.05rem; line-height: 1.5; display: inline-block; margin-bottom: 0.5rem;">An Analysis of US Net Cancer Drug Launch Prices and Clinical Efficacy and Certainty of Evidence from 2008 to 2022</a>
+                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 0.3rem;">Sumaya Abuloha, Ben Harvey, Shu Niu, Alaa Alshehri, Melissa Miri, Katherine Clifford, James Chambers and Mikael Svensson</p>
+                    <p style="color: #777; font-style: italic; font-size: 0.95rem;">Health Affairs Scholar, 2025: 3: qxaf051.</p>
                 </div>
 
-                <div class="publication">
-                    <a class="pub-title" href="https://www.valueinhealthjournal.com/article/S1098-3015%2825%2900042-7/abstract" target="_blank" rel="noopener noreferrer">Capturing the Additional Cardiovascular Benefits of SGLT2 Inhibitors and GLP-1 Receptor Agonists Beyond the Control of Traditional Risk Factors in People with Diabetes</a>
-                    <p class="pub-authors">Shu Niu, Dawei Guan, Lizheng Shi, Vivian Fonseca, Mikael Svensson, Mohammed Ali, Yan Sun, Xin Hu, Chang Su, Carl Yang and Hui Shao</p>
-                    <p class="pub-venue">Value in Health, 2025: 28: 762-768.</p>
+                <div class="publication" style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #e0e0e0;">
+                    <a href="https://www.valueinhealthjournal.com/article/S1098-3015%2825%2900042-7/abstract" target="_blank" style="color: #3498db; text-decoration: none; font-weight: 600; font-size: 1.05rem; line-height: 1.5; display: inline-block; margin-bottom: 0.5rem;">Capturing the Additional Cardiovascular Benefits of SGLT2 Inhibitors and GLP-1 Receptor Agonists Beyond the Control of Traditional Risk Factors in People with Diabetes</a>
+                    <p style="color: #666; font-size: 0.95rem; margin-bottom: 0.3rem;">Shu Niu, Dawei Guan, Lizheng Shi, Vivian Fonseca, Mikael Svensson, Mohammed Ali, Yan Sun, Xin Hu, Chang Su, Carl Yang and Hui Shao</p>
+                    <p style="color: #777; font-style: italic; font-size: 0.95rem;">Value in Health, 2025: 28: 762-768.</p>
                 </div>
 
-                <p class="pub-footnote">
-                    For a complete list of publications organized by topic, please visit my <a class="text-link" href="publications.html">publications page</a> or <a class="text-link" href="https://scholar.google.com/citations?user=gB-V5z8AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>.
+                <p style="color: #666; line-height: 1.8; margin-top: 1.5rem;">
+                    For a complete list of publications organized by topic, please visit my <a href="publications.html" style="color: #3498db; text-decoration: none;">publications page</a> or <a href="https://scholar.google.com/citations?user=gB-V5z8AAAAJ" style="color: #3498db; text-decoration: none;">Google Scholar profile</a>.
                 </p>
             </div>
         </div>
 
         <div class="section" id="teaching">
             <h2 class="section-title">Teaching</h2>
-
+            
             <div style="margin-bottom: 2rem;">
-                <h3 class="subhead">Courses</h3>
-                <p class="prose">
-                    Spring 2026 I teach a Ph.D. level course on <a class="text-link" href="https://www.gu.se/nyheter/forskarutbildningskurs-i-halsoekonomisk-utvarderingsmetod" target="_blank" rel="noopener noreferrer">Health Economic Evaluation Methods</a> and co-ordinate the Master's of Public Health Thesis course.
+                <h3 style="color: #2c3e50; font-size: 1.3rem; margin-bottom: 1rem;">Courses</h3>
+                <p style="color: #555; line-height: 1.8; margin-bottom: 0.8rem;">
+                    Spring 2026 I teach a Ph.D. level course on <a href="https://www.gu.se/nyheter/forskarutbildningskurs-i-halsoekonomisk-utvarderingsmetod" target="_blank" style="color: #3498db; text-decoration: none;">Health Economic Evaluation Methods</a> and co-ordinate the Master's of Public Health Thesis course.
                 </p>
             </div>
 
             <div>
-                <h3 class="subhead">Teaching Material</h3>
-                <p class="prose">
-                    My textbook on <a class="text-link" href="https://www.studentlitteratur.se/kurslitteratur/nationalekonomi/nationalekonomi---allmant/halsoekonomisk-utvardering/" target="_blank" rel="noopener noreferrer">economic evaluation in healthcare</a> (Studentlitteratur, in Swedish).
+                <h3 style="color: #2c3e50; font-size: 1.3rem; margin-bottom: 1rem;">Teaching Material</h3>
+                <p style="color: #555; line-height: 1.8;">
+                    My textbook on <a href="https://www.studentlitteratur.se/kurslitteratur/nationalekonomi/nationalekonomi---allmant/halsoekonomisk-utvardering/" target="_blank" style="color: #3498db; text-decoration: none;">economic evaluation in healthcare</a> (Studentlitteratur, in Swedish).
                 </p>
             </div>
         </div>
@@ -243,64 +593,55 @@
 
     <footer>
         <p>&copy; 2026 Mikael Svensson. All rights reserved.</p>
-        <p class="updated">Last updated: <time datetime="2026-09-02">2 September 2026</time></p>
     </footer>
 
     <script>
-        // ============================================================
-        // UPDATE YOUR POSTS HERE — add a new object to the TOP of the
-        // list each time you publish. The newest 3 are shown.
-        //
-        // (Substack's RSS feed can't be read directly by the browser —
-        // it blocks cross-origin requests — so this list is manual.)
-        // ============================================================
-        const substackPosts = [
-            {
-                title: "The arithmetic of SMA treatments",
-                url: "https://pharmaekonomi.substack.com/p/the-arithmetic-of-sma-treatments",
-                date: "2026-06-11",
-                excerpt: "A new budget impact analysis of three disease-modifying therapies for infantile-onset spinal muscular atrophy shows that the answer to “which is cheapest?” depends entirely on how long you look.",
-                image: "https://substackcdn.com/image/fetch/$s_!gyu1!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe93abbe2-978a-4d70-9cc9-b611a114de79_1472x812.png"
-            }
-        ];
-        // ============================================================
-
-        function escapeHtml(s) {
-            return String(s).replace(/[&<>"']/g, c => ({
-                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-            }[c]));
-        }
-
+        // ============================================
+        // UPDATE YOUR POSTS HERE - Just edit this array when you publish a new post
+        // Only the FIRST/NEWEST post in the list will be displayed on the website
+        // ============================================
+    const substackPosts = [
+    {
+        title: "The arithmetic of SMA treatments",
+        url: "https://pharmaekonomi.substack.com/p/the-arithmetic-of-sma-treatments",
+        date: "2026-06-11",
+        excerpt: "A new budget impact analysis of three disease-modifying therapies for infantile-onset spinal muscular atrophy shows that the answer to “which is cheapest?” depends entirely on how long you look.",
+        image: "https://substackcdn.com/image/fetch/$s_!gyu1!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe93abbe2-978a-4d70-9cc9-b611a114de79_1472x812.png"
+    }
+];
+        // ============================================
+        
+        // Function to display Substack posts
         function loadSubstackPosts() {
             const container = document.getElementById('substack-posts');
-            if (!container) return;
-
-            const posts = substackPosts.slice(0, 3);
-
-            if (!posts.length) {
-                container.innerHTML = '<p class="loading">No posts yet.</p>';
-                return;
-            }
-
-            container.innerHTML = posts.map(post => {
-                const d = new Date(post.date);
-                const formatted = d.toLocaleDateString('en-GB', {
-                    year: 'numeric', month: 'long', day: 'numeric'
+            let html = '';
+            
+            // Display only the latest post
+            substackPosts.slice(0, 1).forEach(post => {
+                const pubDate = new Date(post.date);
+                const formattedDate = pubDate.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
                 });
-                const bg = post.image
-                    ? ` style="background-image: url('${escapeHtml(post.image)}');"`
-                    : '';
-                return `
-                    <div class="substack-post"${bg}>
-                        <h3><a href="${escapeHtml(post.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(post.title)}</a></h3>
-                        <p class="post-date">Published: <time datetime="${escapeHtml(post.date)}">${formatted}</time></p>
-                        <p class="post-excerpt">${escapeHtml(post.excerpt)}</p>
-                        <a href="${escapeHtml(post.url)}" target="_blank" rel="noopener noreferrer" class="read-more">Read more on Substack →</a>
-                    </div>`;
-            }).join('') +
-            '<p class="substack-more"><a class="text-link" href="https://pharmaekonomi.substack.com/" target="_blank" rel="noopener noreferrer">All posts on Pharmaekonomi →</a></p>';
+                
+                // Add inline style for background image
+                const backgroundStyle = post.image ? `style="background-image: url('${post.image}');"` : '';
+                
+                html += `
+                    <div class="substack-post" ${backgroundStyle}>
+                        <h3><a href="${post.url}" target="_blank">${post.title}</a></h3>
+                        <p class="post-date">Published: ${formattedDate}</p>
+                        <p class="post-excerpt">${post.excerpt}</p>
+                        <a href="${post.url}" target="_blank" class="read-more">Read more on Substack →</a>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
         }
-
+        
+        // Load posts when page loads
         document.addEventListener('DOMContentLoaded', loadSubstackPosts);
     </script>
 </body>
