@@ -1,9 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications - Mikael Svensson, Ph.D.</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="Peer-reviewed publications by Mikael Svensson, Professor of Applied Health Economics at the University of Gothenburg, organized by research topic.">
+    <meta name="author" content="Mikael Svensson">
+    <link rel="canonical" href="https://www.msvensson.com/publications.html">
+    <meta property="og:title" content="Publications - Mikael Svensson, Ph.D.">
+    <meta property="og:description" content="Peer-reviewed publications in health economics, organized by research topic.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.msvensson.com/publications.html">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; }
@@ -43,6 +52,7 @@
                 <li><a href="index.html#team">Team</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="https://pharmaekonomi.substack.com/" target="_blank">Substack</a></li>
+                <li><a href="index.html#advisory">Advisory</a></li>
                 <li><a href="index.html#teaching">Teaching</a></li>
             </ul>
         </nav>
@@ -54,6 +64,8 @@
         <div class="intro">
             <p><strong>Publications in peer-reviewed journals by research topic</strong></p>
             <p>For all publications, see my <a href="https://www.dropbox.com/s/1unoaucng852wjd/CV%20-%20Mikael%20Svensson.pdf?dl=0" target="_blank">CV</a>.</p>
+            <input type="search" id="pub-search" placeholder="Search by title, author, journal, or year..." style="width: 100%; padding: 0.8rem 1rem; border: 1px solid #d0d0d0; border-radius: 5px; font-size: 1rem; font-family: inherit; margin-top: 0.5rem;" aria-label="Search publications">
+            <p id="pub-count" style="color: #999; font-size: 0.9rem; margin-top: 0.8rem; margin-bottom: 0;"></p>
         </div>
 
         <!-- ============================================================ -->
@@ -363,6 +375,12 @@
                 <a href="https://link.springer.com/epdf/10.1186/s12962-021-00304-5" target="_blank">The cost-effectiveness of a care manager collaborative care programme for patients with depression in primary care: 12-month economic evaluation of a pragmatic randomized controlled study</a>
                 <p class="authors">Anna Holst, Frida Labori, Cecilia Björkelund, Dominique Hange, Irene Svenningsson, Eva-Lisa Petersson, Jeanette Westman, Camilla Udo, Christina Möller and Mikael Svensson</p>
                 <p class="journal">Cost Effectiveness and Resource Allocation, 2021, 19: 52.</p>
+            </div>
+
+            <div class="publication">
+                <a href="https://www.ejves.com/article/S1078-5884(21)00601-8/fulltext" target="_blank">Cost Effectiveness of Primary Stenting in the Superficial Femoral Artery for Intermittent Claudication: Two Year Results of a Randomised Multicentre Trial</a>
+                <p class="authors">Henrik Djerf, Mikael Svensson, Joakim Nordanstig, Anders Gottsäter, Mårten Falkenberg and Hans Lindgren</p>
+                <p class="journal">European Journal of Vascular and Endovascular Surgery, 2021, 62: 576-582.</p>
             </div>
 
             <div class="publication">
@@ -845,5 +863,37 @@
         <p>&copy; 2026 Mikael Svensson. All rights reserved.</p>
         <p style="margin-top: 0.5rem; font-size: 0.9rem;">University of Gothenburg | Sahlgrenska Academy</p>
     </footer>
+
+    <script>
+        const searchInput = document.getElementById('pub-search');
+        const countLabel = document.getElementById('pub-count');
+        const publications = Array.from(document.querySelectorAll('.publication'));
+        const sections = Array.from(document.querySelectorAll('.section'));
+
+        function updateCount(visible) {
+            countLabel.textContent = searchInput.value.trim()
+                ? `Showing ${visible} of ${publications.length} publications`
+                : `${publications.length} peer-reviewed publications`;
+        }
+
+        function filterPublications() {
+            const query = searchInput.value.trim().toLowerCase();
+            let visible = 0;
+            publications.forEach(pub => {
+                const match = !query || pub.textContent.toLowerCase().includes(query);
+                pub.style.display = match ? '' : 'none';
+                if (match) visible++;
+            });
+            sections.forEach(section => {
+                const anyVisible = Array.from(section.querySelectorAll('.publication'))
+                    .some(pub => pub.style.display !== 'none');
+                section.style.display = anyVisible ? '' : 'none';
+            });
+            updateCount(visible);
+        }
+
+        searchInput.addEventListener('input', filterPublications);
+        updateCount(publications.length);
+    </script>
 </body>
 </html>
