@@ -28,6 +28,11 @@
         .intro p { font-size: 1.05rem; color: #555; margin-bottom: 1rem; }
         .intro a { color: #3498db; text-decoration: none; font-weight: 500; }
         .intro a:hover { text-decoration: underline; }
+        .topic-nav { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: flex-start; max-width: none; margin: 0.2rem 0 1.2rem; padding: 0; }
+        .topic-nav a { display: inline-block; padding: 0.4rem 0.9rem; background: #eef5fb; color: #2c3e50; border: 1px solid #d5e5f2; border-radius: 20px; font-size: 0.9rem; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+        .topic-nav a:hover { background: #3498db; border-color: #3498db; color: white; text-decoration: none; }
+        html { scroll-behavior: smooth; }
+        .section { scroll-margin-top: 1.5rem; }
         h1 { font-size: 2.5rem; color: #2c3e50; margin-bottom: 2rem; }
         .section { background: white; padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 2rem; }
         .section h2 { font-size: 1.8rem; color: #2c3e50; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #3498db; }
@@ -63,15 +68,25 @@
 
         <div class="intro">
             <p><strong>Publications in peer-reviewed journals by research topic</strong></p>
+            <nav class="topic-nav" aria-label="Research topics">
+                <a href="#drug-pricing">Drug Pricing &amp; Spending</a>
+                <a href="#healthcare-demand">Demand of Healthcare</a>
+                <a href="#methods">Economic Evaluation Methods</a>
+                <a href="#cea-patient">CEA: Patient-level Data</a>
+                <a href="#cea-models">CEA: Decision Models</a>
+                <a href="#hta">HTA &amp; Clinical Effectiveness</a>
+                <a href="#cost-of-illness">Cost of Illness</a>
+                <a href="#public-health">Public Health</a>
+                <a href="#other">Other</a>
+            </nav>
             <p>For all publications, see my <a href="https://www.dropbox.com/s/1unoaucng852wjd/CV%20-%20Mikael%20Svensson.pdf?dl=0" target="_blank">CV</a>.</p>
             <input type="search" id="pub-search" placeholder="Search by title, author, journal, or year..." style="width: 100%; padding: 0.8rem 1rem; border: 1px solid #d0d0d0; border-radius: 5px; font-size: 1rem; font-family: inherit; margin-top: 0.5rem;" aria-label="Search publications">
-            <p id="pub-count" style="color: #999; font-size: 0.9rem; margin-top: 0.8rem; margin-bottom: 0;"></p>
         </div>
 
         <!-- ============================================================ -->
         <!-- DEMAND, PRICING AND SPENDING OF PRESCRIPTION DRUGS           -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="drug-pricing">
             <h2>Demand, Pricing and Spending of Prescription Drugs</h2>
 
             <div class="publication">
@@ -132,7 +147,7 @@
         <!-- ============================================================ -->
         <!-- DEMAND OF HEALTHCARE                                          -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="healthcare-demand">
             <h2>Demand of Healthcare</h2>
 
             <div class="publication">
@@ -193,7 +208,7 @@
         <!-- ============================================================ -->
         <!-- ECONOMIC EVALUATION METHODS                                   -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="methods">
             <h2>Economic Evaluation Methods</h2>
 
             <div class="publication">
@@ -302,7 +317,7 @@
         <!-- ============================================================ -->
         <!-- APPLIED CEA: PATIENT-LEVEL DATA                              -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="cea-patient">
             <h2>Applied Cost-Effectiveness Analyses: Patient-level data (trial-based &amp; observational)</h2>
 
             <div class="publication">
@@ -435,7 +450,7 @@
         <!-- ============================================================ -->
         <!-- APPLIED CEA: DECISION MODELS                                  -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="cea-models">
             <h2>Applied Cost-Effectiveness Analyses: Decision models</h2>
 
             <div class="publication">
@@ -532,7 +547,7 @@
         <!-- ============================================================ -->
         <!-- HTA & CLINICAL EFFECTIVENESS                                  -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="hta">
             <h2>Health Technology Assessment &amp; Clinical Effectiveness</h2>
 
             <div class="publication">
@@ -665,7 +680,7 @@
         <!-- ============================================================ -->
         <!-- COST OF ILLNESS & CONSEQUENCES                               -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="cost-of-illness">
             <h2>Cost of Illness &amp; Consequences</h2>
 
             <div class="publication">
@@ -738,7 +753,7 @@
         <!-- ============================================================ -->
         <!-- PUBLIC HEALTH                                                 -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="public-health">
             <h2>Public Health</h2>
 
             <div class="publication">
@@ -865,7 +880,7 @@
         <!-- ============================================================ -->
         <!-- OTHER                                                         -->
         <!-- ============================================================ -->
-        <div class="section">
+        <div class="section" id="other">
             <h2>Other</h2>
 
             <div class="publication">
@@ -884,34 +899,23 @@
 
     <script>
         const searchInput = document.getElementById('pub-search');
-        const countLabel = document.getElementById('pub-count');
         const publications = Array.from(document.querySelectorAll('.publication'));
         const sections = Array.from(document.querySelectorAll('.section'));
 
-        function updateCount(visible) {
-            countLabel.textContent = searchInput.value.trim()
-                ? `Showing ${visible} of ${publications.length} publications`
-                : `${publications.length} peer-reviewed publications`;
-        }
-
         function filterPublications() {
             const query = searchInput.value.trim().toLowerCase();
-            let visible = 0;
             publications.forEach(pub => {
                 const match = !query || pub.textContent.toLowerCase().includes(query);
                 pub.style.display = match ? '' : 'none';
-                if (match) visible++;
             });
             sections.forEach(section => {
                 const anyVisible = Array.from(section.querySelectorAll('.publication'))
                     .some(pub => pub.style.display !== 'none');
                 section.style.display = anyVisible ? '' : 'none';
             });
-            updateCount(visible);
         }
 
         searchInput.addEventListener('input', filterPublications);
-        updateCount(publications.length);
     </script>
 </body>
 </html>
